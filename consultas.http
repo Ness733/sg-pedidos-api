@@ -41,6 +41,13 @@ Content-Type: application/json
 "semana": false
 }
 ###
+PATCH http://localhost:3000/pedidos/79
+Content-Type: application/json
+
+{
+    "estado": "entregado"
+}
+###
 DELETE http://localhost:3000/pedidos/80
 ###
 GET http://localhost:3000/items_pedido

@@ -62,7 +62,6 @@ export async function deleteUsuario(req, res) {
 		await usuario.destroy();
 		res.status(200).json(StatusCodes.OK);
 	} catch (error) {
-		console.log(error);
-		res.status(204).json(error);
+		res.status(204).json(StatusCodes.NO_CONTENT);
 	}
 }
