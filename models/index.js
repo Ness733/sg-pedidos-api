@@ -5,7 +5,12 @@ import Vianda from "./vianda/vianda.js";
 import Caja from "./caja/caja.js";
 
 // Usuarios
-Usuarios.hasMany(Pedido, { foreignKey: "id_users" });
+Usuarios.hasMany(Pedido, {
+	foreignKey: "id_users",
+	onDelete: "cascade",
+	// Discouraged, to be optimized at a further time.
+	hooks: true,
+});
 Pedido.belongsTo(Usuarios, { foreignKey: "id_users" });
 Pedido.hasMany(itemPedido, {
 	foreignKey: "id_pedido",

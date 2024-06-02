@@ -1,11 +1,13 @@
 GET http://localhost:3000/usuarios
 ###
+DELETE http://localhost:3000/usuarios/220
+###
 POST http://localhost:3000/usuarios
 Content-Type: application/json
 
 {
-    "nombre": "Nestor",
-    "apellido": "Rosales",
+    "nombre": "Pedro",
+    "apellido": "Pascal",
     "telefono": "3425138732",
     "direccion": "Pedro Vittori 3691",
     "detalle_usuario": "Ninguno",
@@ -32,23 +34,23 @@ POST http://localhost:3000/pedidos/
 Content-Type: application/json
 
 {
-"id_users": 1,
-"detalle_pedido": "Entregar despues de las 13 horas",
-"forma_pago": "mitad efectivo, mitad transferencia",
-"dia": true,
+"id_users": 220,
+"detalle_pedido": "probando cascade delete user/pedido",
+"forma_pago": "eliminar el usuario deberia eliminar el pedido",
+"dia": "Lunes",
 "semana": false
 }
 ###
-DELETE http://localhost:3000/pedidos/1
+DELETE http://localhost:3000/pedidos/80
 ###
 GET http://localhost:3000/items_pedido
 ###
-POST http://localhost:3000/items%20pedido
+POST http://localhost:3000/items_pedido
 Content-Type: application/json
 
 {
     "id_vianda": 5,
-    "id_pedido": 3,
+    "id_pedido": 81,
     "detalle_pedido": "",
-    "cantidad": 1
+    "cantidad": 2
 }
