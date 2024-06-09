@@ -12,18 +12,13 @@ import cajaRouter from "./models/caja/caja_routes.js";
 
 const app = express();
 
+const host = process.env.HOST;
+const port = process.env.PORT;
+
 app.use(cors());
 app.use(express.json());
 app.use((req, res, next) => {
-	res.header(
-		"Access-Control-Allow-Origin",
-		"https://nrdev.online",
-		"http://localhost:3000",
-		"http://localhost:5173",
-		"https://rosalesnestor-dev.vercel.app",
-		"http://192.168.1.101:5173/",
-		"https://6n842j39-5173.brs.devtunnels.ms/"
-	);
+	res.header("Access-Control-Allow-Origin");
 	res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
 	res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
@@ -48,8 +43,6 @@ try {
 	console.log("Algo salió mal", error);
 }
 
-const port = process.env.PORT || 3000;
-
 app.listen(port, () => {
-	console.log(`App listening on http://localhost:${port}`);
+	console.log(`App listening on http://${host}:${port}`);
 });
